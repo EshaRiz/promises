@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function promise() {
+            let teamA_Score =  new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("Team A's Score is: 54")
+                }, 2000);
+            })
+            let teamB_Score =  new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("Team B's Score is: 60")
+                }, 4000);
+            })
+            let teamC_Score =  new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("Team C's Score is: 48")
+                }, 6000);
+            })
+            let teamA = await teamA_Score;
+            console.log("Fetching Team A's Score");
+            console.log(`Team A's Score Fetched ${teamA}`);
+
+            let teamB = await teamB_Score;
+            console.log("Fetching Team A's Score");
+            console.log(`Team A's Score Fetched ${teamB}`);
+
+            let teamC = await teamC_Score;
+            console.log("Fetching Team A's Score");
+            console.log(`Team A's Score Fetched ${teamC}`);
+
+            return[teamA,teamB,teamC]
+        }
+        let fullfill = ((value)=>{
+            console.log(value);
+        })
+        promise().then((value)=>{
+            console.log(value);
+        })
+
+    </script>
+</body>
+</html>
