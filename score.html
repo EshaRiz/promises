@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    async function promise() {
+        let karachiScore = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Score is 9/10")
+            }, 3000);
+        })
+        let lahoreScore = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Score is 8/10")
+            }, 6000);
+        })
+        let multanScore = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Score is 7.5/10")
+            }, 9000);
+        })
+
+        let khi = await karachiScore;
+        document.write(`Fetching Score <br>`);
+        document.write(`Fetched Score ${khi} <br>`);
+        
+
+        let lhr = await lahoreScore;
+        document.write(`Fetching Score <br>`);
+        document.write(`Fetched Score ${lhr} <br>`);
+
+        let mul = await multanScore;
+        document.write(`Fetching Score <br>`);
+        document.write(`Fetched Score ${mul} <br>`);
+
+        return[khi,lhr,mul]
+    }
+    let fullfill = ((value)=>{
+        console.log(value);
+    })
+    promise().then((value)=>{
+        console.log(value);
+    })
+
+    
+</script>
